@@ -242,10 +242,3 @@ model Subscription {
 - Formulários: `src/components/RegisterForm/index.tsx`, `src/components/LoginForm/index.tsx`, `src/CEPForm/cep-form.schema.ts`
 
 ---
-
-Se quiser, eu posso:
-
-- Gerar o `schema.prisma` completo pronto para rodar `prisma migrate` baseado no esboço acima.
-- Criar o esqueleto do projeto Fastify + TypeScript com rotas e testes (Vitest) iniciais.
-
-Diga qual próximo passo prefere que eu execute.
