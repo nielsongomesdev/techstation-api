@@ -91,6 +91,14 @@ export const getProductById = async (id: number) => {
 };
 
 export const createProduct = async (data: CreateProduct) => {
+	const category = await prisma.category.findUnique({
+		where: { id: data.categoryId },
+	});
+
+	if (!category || !category.active) {
+		throw new Error("Categoria não encontrada ou inativa");
+	}
+
 	const existingProduct = await prisma.product.findUnique({
 		where: { slug: data.slug },
 	});
