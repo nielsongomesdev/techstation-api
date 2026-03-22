@@ -1,6 +1,3 @@
-// Require the framework and instantiate it
-
-// ESM
 import Fastify, { FastifyInstance } from "fastify";
 import "dotenv/config";
 import cors from "@fastify/cors";
@@ -58,12 +55,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 				description: "API para o e-commerce Syntax Wear",
 				version: "1.0.0",
 			},
-			servers: [
-				{
-					url: `http://localhost:${PORT}`,
-					description: "Servidor de desenvolvimento",
-				},
-			],
+			servers: [],
 			components: {
 				securitySchemes: {
 					bearerAuth: {
@@ -89,7 +81,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 	fastify.register(orderRoutes, { prefix: "/orders" });
 	fastify.register(authRoutes, { prefix: "/auth" });
 
-	// Declare a route
+	
 	fastify.get("/", async (request, reply) => {
 		return {
 			message: "E-commerce Syntax Wear API",
