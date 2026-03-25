@@ -5,164 +5,164 @@ const prisma = new PrismaClient()
 
 const categories = [
   {
-    name: 'Camisetas',
-    slug: 'camisetas',
-    description: 'Camisetas casuais e confortáveis para o dia a dia',
+    name: 'Teclados',
+    slug: 'teclados',
+    description: 'Teclados mecânicos e ópticos de alta performance tática',
     active: true,
   },
   {
-    name: 'Moletons',
-    slug: 'moletons',
-    description: 'Moletons quentes e estilosos',
+    name: 'Mouses',
+    slug: 'mouses',
+    description: 'Mouses ergonômicos e ultraleves de alta precisão',
     active: true,
   },
   {
-    name: 'Calças',
-    slug: 'calcas',
-    description: 'Calças e jeans para todas as ocasiões',
+    name: 'Monitores',
+    slug: 'monitores',
+    description: 'Monitores Ultrawide e 4K para máxima imersão',
     active: true,
   },
   {
-    name: 'Shorts',
-    slug: 'shorts',
-    description: 'Shorts esportivos e casuais',
+    name: 'Áudio',
+    slug: 'audio',
+    description: 'Headsets, fones e microfones com cancelamento de ruído',
     active: true,
   },
   {
     name: 'Acessórios',
     slug: 'acessorios',
-    description: 'Cintos, bonés, mochilas e mais',
+    description: 'Mousepads, suportes e cabos customizados',
     active: true,
   },
   {
-    name: 'Vestidos',
-    slug: 'vestidos',
-    description: 'Vestidos para diversas ocasiões',
+    name: 'Setups Completos',
+    slug: 'setups-completos',
+    description: 'Estações táticas e minimalistas pré-configuradas',
     active: true,
   },
   {
-    name: 'Calçados',
-    slug: 'calcados',
-    description: 'Tênis, sapatos e sandálias',
+    name: 'Cadeiras',
+    slug: 'cadeiras',
+    description: 'Cadeiras ergonômicas para longas sessões de uso',
     active: true,
   },
   {
-    name: 'Meias',
-    slug: 'meias',
-    description: 'Meias confortáveis em diversos estilos',
+    name: 'Componentes',
+    slug: 'componentes',
+    description: 'Placas de vídeo, processadores e memórias',
     active: true,
   },
 ]
 
 const products = [
   {
-    name: 'Classic Tee',
-    slug: 'classic-tee',
-    description: 'Camiseta clássica, confortável e versátil.',
-    price: '29.99',
+    name: 'Teclado Mecânico K600',
+    slug: 'teclado-mecanico-k600',
+    description: 'Teclado mecânico tátil com switches Brown e iluminação RGB customizável.',
+    price: '459.99',
     colors: ['Black', 'White'],
-    images: ['https://placehold.co/600x400?text=classic-tee+1', 'https://placehold.co/600x400?text=classic-tee+2'],
-    sizes: ['S', 'M', 'L'],
+    images: ['https://placehold.co/600x400?text=teclado-k600+1', 'https://placehold.co/600x400?text=teclado-k600+2'],
+    sizes: ['ANSI', 'ABNT2'], // Usando sizes para layout
     stock: 120,
     active: true,
   },
   {
-    name: 'Vintage Hoodie',
-    slug: 'vintage-hoodie',
-    description: 'Moletom estilo vintage com caimento oversized.',
-    price: '59.90',
-    colors: ['Gray', 'Navy'],
-    images: ['https://placehold.co/600x400?text=vintage-hoodie+1'],
-    sizes: ['M', 'L', 'XL'],
+    name: 'Mouse Ultralight Pro X',
+    slug: 'mouse-ultralight-pro-x',
+    description: 'Mouse ultraleve de 60g com sensor óptico de 26K DPI.',
+    price: '349.90',
+    colors: ['Black', 'White'],
+    images: ['https://placehold.co/600x400?text=mouse-pro-x+1'],
+    sizes: ['Único'],
     stock: 60,
     active: true,
   },
   {
-    name: 'Slim Jeans',
-    slug: 'slim-jeans',
-    description: 'Jeans slim fit, tecido stretch para maior conforto.',
-    price: '79.50',
-    colors: ['Blue'],
-    images: ['https://placehold.co/600x400?text=slim-jeans+1'],
-    sizes: ['30', '32', '34', '36'],
+    name: 'Monitor Ultrawide 34" 144Hz',
+    slug: 'monitor-ultrawide-34',
+    description: 'Monitor curvo ultrawide focado em produtividade e imersão.',
+    price: '2499.50',
+    colors: ['Black'],
+    images: ['https://placehold.co/600x400?text=monitor-ultrawide+1'],
+    sizes: ['34"'],
     stock: 40,
     active: true,
   },
   {
-    name: 'Sport Shorts',
-    slug: 'sport-shorts',
-    description: 'Shorts esportivo, ideal para treinos.',
-    price: '24.00',
-    colors: ['Black', 'Green'],
-    images: ['https://placehold.co/600x400?text=sport-shorts+1'],
-    sizes: ['S', 'M', 'L'],
+    name: 'Headset Wireless Stealth',
+    slug: 'headset-wireless-stealth',
+    description: 'Headset sem fio com áudio espacial e bateria de 50 horas.',
+    price: '799.00',
+    colors: ['Black', 'Gray'],
+    images: ['https://placehold.co/600x400?text=headset-stealth+1'],
+    sizes: ['Único'],
     stock: 200,
     active: true,
   },
   {
-    name: 'Leather Belt',
-    slug: 'leather-belt',
-    description: 'Cinto de couro legítimo com fivela metálica.',
-    price: '19.99',
-    colors: ['Brown', 'Black'],
-    images: ['https://placehold.co/600x400?text=leather-belt+1'],
-    sizes: ['M', 'L'],
+    name: 'Mousepad Control Extended',
+    slug: 'mousepad-control-extended',
+    description: 'Mousepad de tecido premium para máximo controle.',
+    price: '119.99',
+    colors: ['Black', 'Navy'],
+    images: ['https://placehold.co/600x400?text=mousepad-control+1'],
+    sizes: ['L', 'XL'],
     stock: 80,
     active: true,
   },
   {
-    name: 'Summer Dress',
-    slug: 'summer-dress',
-    description: 'Vestido leve para dias quentes.',
-    price: '49.00',
-    colors: ['Yellow', 'White'],
-    images: ['https://placehold.co/600x400?text=summer-dress+1'],
-    sizes: ['S', 'M', 'L'],
+    name: 'Setup Tático Stealth',
+    slug: 'setup-tatico-stealth',
+    description: 'Combo completo: Teclado, Mouse e Headset da linha Stealth.',
+    price: '1499.00',
+    colors: ['Black'],
+    images: ['https://placehold.co/600x400?text=setup-stealth+1'],
+    sizes: ['Único'],
     stock: 30,
     active: true,
   },
   {
-    name: 'Running Shoes',
-    slug: 'running-shoes',
-    description: 'Tênis de corrida com amortecimento avançado.',
-    price: '119.99',
-    colors: ['Black', 'Red'],
-    images: ['https://placehold.co/600x400?text=running-shoes+1'],
-    sizes: ['40', '41', '42', '43'],
+    name: 'Cadeira ErgoPro',
+    slug: 'cadeira-ergopro',
+    description: 'Cadeira ergonômica com suporte lombar dinâmico.',
+    price: '1899.99',
+    colors: ['Black', 'Gray'],
+    images: ['https://placehold.co/600x400?text=cadeira-ergopro+1'],
+    sizes: ['Único'],
     stock: 75,
     active: true,
   },
   {
-    name: 'Beanie Cap',
-    slug: 'beanie-cap',
-    description: 'Gorro em malha, estilo urbano.',
-    price: '12.50',
-    colors: ['Black', 'Gray'],
-    images: ['https://placehold.co/600x400?text=beanie-cap+1'],
-    sizes: [],
+    name: 'Cabo USB-C Custom Coiled',
+    slug: 'cabo-usb-c-custom',
+    description: 'Cabo enrolado customizado para teclados mecânicos.',
+    price: '89.50',
+    colors: ['Black', 'White'],
+    images: ['https://placehold.co/600x400?text=cabo-coiled+1'],
+    sizes: ['1.5m'],
     stock: 150,
     active: true,
   },
   {
-    name: 'Canvas Backpack',
-    slug: 'canvas-backpack',
-    description: 'Mochila de lona com múltiplos compartimentos.',
-    price: '69.00',
-    colors: ['Olive', 'Black'],
-    images: ['https://placehold.co/600x400?text=canvas-backpack+1'],
-    sizes: [],
+    name: 'Suporte Articulado para Monitor',
+    slug: 'suporte-monitor',
+    description: 'Braço articulado com pistão a gás para 1 monitor.',
+    price: '269.00',
+    colors: ['Black'],
+    images: ['https://placehold.co/600x400?text=suporte-monitor+1'],
+    sizes: ['Único'],
     stock: 45,
     active: true,
   },
   {
-    name: 'Striped Socks',
-    slug: 'striped-socks',
-    description: 'Meias listradas em algodão macio.',
-    price: '6.99',
-    colors: ['White', 'Blue'],
-    images: ['https://placehold.co/600x400?text=striped-socks+1'],
-    sizes: ['One Size'],
-    stock: 300,
+    name: 'RTX 4070 Ti Super',
+    slug: 'rtx-4070-ti-super',
+    description: 'Placa de vídeo de alta performance para 1440p e 4K.',
+    price: '5499.99',
+    colors: ['Black', 'Silver'],
+    images: ['https://placehold.co/600x400?text=rtx-4070+1'],
+    sizes: ['16GB VRAM'],
+    stock: 20,
     active: true,
   },
 ]
@@ -218,27 +218,27 @@ async function main() {
     console.log(`✅ ${createdCategories.count} categorias criadas`)
 
     // Buscar categorias criadas para obter IDs
-    const camisetas = await prisma.category.findUnique({ where: { slug: 'camisetas' } })
-    const moletons = await prisma.category.findUnique({ where: { slug: 'moletons' } })
-    const calcas = await prisma.category.findUnique({ where: { slug: 'calcas' } })
-    const shorts = await prisma.category.findUnique({ where: { slug: 'shorts' } })
+    const teclados = await prisma.category.findUnique({ where: { slug: 'teclados' } })
+    const mouses = await prisma.category.findUnique({ where: { slug: 'mouses' } })
+    const monitores = await prisma.category.findUnique({ where: { slug: 'monitores' } })
+    const audio = await prisma.category.findUnique({ where: { slug: 'audio' } })
     const acessorios = await prisma.category.findUnique({ where: { slug: 'acessorios' } })
-    const vestidos = await prisma.category.findUnique({ where: { slug: 'vestidos' } })
-    const calcados = await prisma.category.findUnique({ where: { slug: 'calcados' } })
-    const meias = await prisma.category.findUnique({ where: { slug: 'meias' } })
+    const setupsCompletos = await prisma.category.findUnique({ where: { slug: 'setups-completos' } })
+    const cadeiras = await prisma.category.findUnique({ where: { slug: 'cadeiras' } })
+    const componentes = await prisma.category.findUnique({ where: { slug: 'componentes' } })
 
     // Adicionar categoryId aos produtos
     const productsWithCategory = [
-      { ...products[0], categoryId: camisetas!.id },      // Classic Tee
-      { ...products[1], categoryId: moletons!.id },       // Vintage Hoodie
-      { ...products[2], categoryId: calcas!.id },         // Slim Jeans
-      { ...products[3], categoryId: shorts!.id },         // Sport Shorts
-      { ...products[4], categoryId: acessorios!.id },     // Leather Belt
-      { ...products[5], categoryId: vestidos!.id },       // Summer Dress
-      { ...products[6], categoryId: calcados!.id },       // Running Shoes
-      { ...products[7], categoryId: acessorios!.id },     // Beanie Cap
-      { ...products[8], categoryId: acessorios!.id },     // Canvas Backpack
-      { ...products[9], categoryId: meias!.id },          // Striped Socks
+      { ...products[0], categoryId: teclados!.id },       // K600
+      { ...products[1], categoryId: mouses!.id },         // Pro X
+      { ...products[2], categoryId: monitores!.id },      // Ultrawide
+      { ...products[3], categoryId: audio!.id },          // Stealth Headset
+      { ...products[4], categoryId: acessorios!.id },     // Mousepad
+      { ...products[5], categoryId: setupsCompletos!.id },// Setup Stealth
+      { ...products[6], categoryId: cadeiras!.id },       // Cadeira Ergo
+      { ...products[7], categoryId: acessorios!.id },     // Cabo Coiled
+      { ...products[8], categoryId: acessorios!.id },     // Suporte Monitor
+      { ...products[9], categoryId: componentes!.id },    // RTX 4070
     ]
 
     // Criar produtos
@@ -246,18 +246,16 @@ async function main() {
     console.log(`✅ ${createdProducts.count} produtos criados com categorias vinculadas`)
 
     // Buscar produtos criados para obter IDs
-    const classicTee = await prisma.product.findUnique({ where: { slug: 'classic-tee' } })
-    const vintageHoodie = await prisma.product.findUnique({ where: { slug: 'vintage-hoodie' } })
-    const slimJeans = await prisma.product.findUnique({ where: { slug: 'slim-jeans' } })
-    const sportShorts = await prisma.product.findUnique({ where: { slug: 'sport-shorts' } })
-    const runningShoes = await prisma.product.findUnique({ where: { slug: 'running-shoes' } })
-    const summerDress = await prisma.product.findUnique({ where: { slug: 'summer-dress' } })
+    const tecladoK600 = await prisma.product.findUnique({ where: { slug: 'teclado-mecanico-k600' } })
+    const mouseProX = await prisma.product.findUnique({ where: { slug: 'mouse-ultralight-pro-x' } })
+    const monitorUltrawide = await prisma.product.findUnique({ where: { slug: 'monitor-ultrawide-34' } })
+    const cadeiraErgo = await prisma.product.findUnique({ where: { slug: 'cadeira-ergopro' } })
 
     // Criar pedidos com OrderItems
     const order1 = await prisma.order.create({
       data: {
         userId: user1.id,
-        total: 109.98, // 2x Classic Tee (29.99 cada) + 1x Sport Shorts (24.00) + frete estimado 26.00
+        total: 1269.88, // 2x K600 (459.99) + 1x Mouse Pro X (349.90)
         status: 'PAID',
         shippingAddress: {
           cep: '01310100',
@@ -273,16 +271,16 @@ async function main() {
         items: {
           create: [
             {
-              productId: classicTee!.id,
-              price: 29.99,
+              productId: tecladoK600!.id,
+              price: 459.99,
               quantity: 2,
-              size: 'M',
+              size: 'ANSI',
             },
             {
-              productId: sportShorts!.id,
-              price: 24.00,
+              productId: mouseProX!.id,
+              price: 349.90,
               quantity: 1,
-              size: 'L',
+              size: 'Único',
             },
           ],
         },
@@ -292,7 +290,7 @@ async function main() {
     const order2 = await prisma.order.create({
       data: {
         userId: user2.id,
-        total: 229.89, // 1x Vintage Hoodie (59.90) + 1x Running Shoes (119.99) + 1x Summer Dress (49.00) + frete estimado 1.00
+        total: 4399.49, // 1x Monitor (2499.50) + 1x Cadeira (1899.99)
         status: 'SHIPPED',
         shippingAddress: {
           cep: '20040020',
@@ -307,88 +305,25 @@ async function main() {
         items: {
           create: [
             {
-              productId: vintageHoodie!.id,
-              price: 59.90,
+              productId: monitorUltrawide!.id,
+              price: 2499.50,
               quantity: 1,
-              size: 'L',
+              size: '34"',
             },
             {
-              productId: runningShoes!.id,
-              price: 119.99,
+              productId: cadeiraErgo!.id,
+              price: 1899.99,
               quantity: 1,
-              size: '42',
-            },
-            {
-              productId: summerDress!.id,
-              price: 49.00,
-              quantity: 1,
-              size: 'M',
+              size: 'Único',
             },
           ],
         },
       },
     })
 
-    const order3 = await prisma.order.create({
-      data: {
-        userId: user1.id,
-        total: 79.50, // 1x Slim Jeans (79.50)
-        status: 'PENDING',
-        shippingAddress: {
-          cep: '01310100',
-          street: 'Av. Paulista',
-          number: '1578',
-          complement: 'Apto 101',
-          neighborhood: 'Bela Vista',
-          city: 'São Paulo',
-          state: 'SP',
-          country: 'BR',
-        },
-        paymentMethod: 'boleto',
-        items: {
-          create: [
-            {
-              productId: slimJeans!.id,
-              price: 79.50,
-              quantity: 1,
-              size: '32',
-            },
-          ],
-        },
-      },
-    })
-
-    // Guest order (sem userId)
-    const order4 = await prisma.order.create({
-      data: {
-        total: 179.97, // 3x Classic Tee (29.99 cada) + frete estimado 90.00
-        status: 'DELIVERED',
-        shippingAddress: {
-          cep: '30130100',
-          street: 'Av. Afonso Pena',
-          number: '867',
-          neighborhood: 'Centro',
-          city: 'Belo Horizonte',
-          state: 'MG',
-          country: 'BR',
-        },
-        paymentMethod: 'credit_card',
-        items: {
-          create: [
-            {
-              productId: classicTee!.id,
-              price: 29.99,
-              quantity: 3,
-              size: 'L',
-            },
-          ],
-        },
-      },
-    })
-
-    console.log(`✅ 4 pedidos criados (Order IDs: ${order1.id}, ${order2.id}, ${order3.id}, ${order4.id})`)
+    console.log(`✅ 2 pedidos criados (Order IDs: ${order1.id}, ${order2.id})`)
     
-    console.log('🎉 Seed finalizado com sucesso!')
+    console.log('🎉 Seed TechStation finalizado com sucesso!')
   } catch (error) {
     console.error('❌ Erro no seed:', error)
     process.exit(1)
