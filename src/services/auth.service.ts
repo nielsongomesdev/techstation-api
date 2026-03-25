@@ -47,13 +47,15 @@ export const loginUser = async (data: AuthRequest) => {
     });
 
     if(!user) {
-        throw new Error("Usuário não encontrado.");
+        reply.status.(409).send.({ message: "As credencias estão incorretas." })
+		return;
     }
 
     const isValidPassword = await bcrypt.compare(data.password, user.password);
 
     if(!isValidPassword) {
-        throw new Error("Senha inválida.");
+        reply.status(409).send({ message: "As credencias estão incorretas." })
+		return;
     }
 
     // Remover password antes de retornar
