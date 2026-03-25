@@ -51,8 +51,8 @@ export async function buildApp(): Promise<FastifyInstance> {
 		openapi: {
 			openapi: "3.0.0",
 			info: {
-				title: "Syntax Wear API",
-				description: "API para o e-commerce Syntax Wear",
+				title: "TechStation API",
+				description: "TechStation API",
 				version: "1.0.0",
 			},
 			servers: [],
@@ -84,7 +84,7 @@ export async function buildApp(): Promise<FastifyInstance> {
 	
 	fastify.get("/", async (request, reply) => {
 		return {
-			message: "E-commerce Syntax Wear API",
+			message: "TechStation API",
 			version: "1.0.0",
 			status: "running",
 		};
