@@ -80,7 +80,7 @@ export const googleLogin = async (
 };
 
 export const signOut = async (request: FastifyRequest, reply: FastifyReply) => {
-  reply.clearCookie("syntaxwear.token", {
+  reply.clearCookie("techstation.token", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
