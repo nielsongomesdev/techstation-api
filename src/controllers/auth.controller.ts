@@ -11,13 +11,20 @@ export const register = async (
 
   const validation = registerSchema.parse(request.body as RegisterRequest);
 
-  const user = await registerUser(validation);
+  const user = await registerUser(validation, reply);
 
   const token = request.server.jwt.sign({ userId: user.id });
 
+  reply.setCookie("techstation.token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24,
+  });
+
   reply.status(201).send({
-    user,
-    token,
+    user
   });
 };
 
@@ -38,7 +45,7 @@ export const login = async (
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    maxAge: 60 * 60 * 24, // Define a expiração do cookie para 24 horas
+    maxAge: 60 * 60 * 24,
   });
 
   reply.status(200).send({
@@ -68,7 +75,7 @@ export const googleLogin = async (
 
   const token = request.server.jwt.sign({ userId: user.id });
 
-  reply.setCookie("techstation.token", token, {
+  reply.setCookie("syntaxwear.token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -80,7 +87,7 @@ export const googleLogin = async (
 };
 
 export const signOut = async (request: FastifyRequest, reply: FastifyReply) => {
-  reply.clearCookie("techstation.token", {
+  reply.clearCookie("syntaxwear.token", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
