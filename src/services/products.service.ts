@@ -2,13 +2,18 @@ import { prisma } from "../utils/prisma";
 import { CreateProduct, ProductFilters, UpdateProduct } from "../types";
 
 export const getProducts = async (filter: ProductFilters) => {
-	const { minPrice, maxPrice, search, categoryId, sortBy, sortOrder, page = 1, limit = 10 } = filter;
+	const { minPrice, maxPrice, search, categoryId, categorySlug, sortBy, sortOrder, page = 1, limit = 10 } = filter;
 
 	const where: any = {};
 
 	// Filtro por categoria
 	if (categoryId) {
 		where.categoryId = categoryId;
+	}
+
+	// Filtro por slug da categoria (relacionamento)
+	if (categorySlug) {
+		where.category = { slug: categorySlug };
 	}
 
 	// Filtro por preço

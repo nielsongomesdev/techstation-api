@@ -22,6 +22,7 @@ export const productFiltersSchema = z.object({
 	maxPrice: z.coerce.number().nonnegative("Preço máximo deve ser positivo").optional(),
 	search: z.string().optional(),
 	categoryId: z.coerce.number().int().optional(),
+	categorySlug: z.string().optional(),
 	sortBy: z.enum(["price", "name", "createdAt"]).optional(),
 	sortOrder: z.enum(["asc", "desc"]).optional(),
 });

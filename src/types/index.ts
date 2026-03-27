@@ -5,8 +5,9 @@ export interface ProductFilters{
     maxPrice?: number;
     search?: string;
     categoryId?: number;
-    sortBy: 'price' | 'name' | 'createdAt';
-    sortOrder: 'asc' | 'desc';
+    categorySlug?: string;
+    sortBy?: 'price' | 'name' | 'createdAt';
+    sortOrder?: 'asc' | 'desc';
 }
 
 export interface CategoryFilters {
